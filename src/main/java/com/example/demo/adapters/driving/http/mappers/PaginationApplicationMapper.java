@@ -4,6 +4,7 @@ import com.example.demo.adapters.driving.http.dto.response.CategoryResponseDto;
 import com.example.demo.adapters.driving.http.dto.response.PaginationResponseDto;
 import com.example.demo.adapters.driving.http.dto.response.ProductAttributeResponseDto;
 import com.example.demo.adapters.driving.http.dto.response.ProductResponseDto;
+import com.example.demo.adapters.driving.http.dto.response.StockResponseDto;
 import com.example.demo.domain.model.Category;
 import com.example.demo.domain.model.CustomPage;
 import com.example.demo.domain.model.Product;
@@ -34,7 +35,37 @@ public class PaginationApplicationMapper {
         );
     }
 
-    private ProductResponseDto toProductResponseDto(Product product) {
+    public PaginationResponseDto<StockResponseDto> toPaginationResponseDtoFromStockResponseDto(CustomPage<Product> customPage){
+        if (customPage == null) {
+            return null;
+        }
+
+        List<StockResponseDto> stockResponseDtos = customPage.getContent().stream()
+                .map(product -> new StockResponseDto(
+                        product.getId() != null ? product.getId().getValue() : null,
+                        product.getName(),
+                        product.getPrice() != null ? product.getPrice().getValue() : null,
+                        product.getInventory() != null ? product.getInventory().getQuantity() : null,
+                        product.getCreationDate().getValue(),
+                        product.getModificationDate() != null ? product.getModificationDate().getValue() : null,
+                        product.getCategory().getTitle(),
+                        product.getInventory().getIsActive() != null ? product.getInventory().getIsActive(): null
+
+                ))
+                .collect(Collectors.toList());
+
+        return new PaginationResponseDto<>(
+                stockResponseDtos,
+                customPage.getPageNumber(),
+                customPage.getPageSize(),
+                customPage.getTotalElements(),
+                customPage.getTotalPages(),
+                customPage.isFirst(),
+                customPage.isLast()
+        );
+    }
+
+    public ProductResponseDto toProductResponseDto(Product product) {
         return new ProductResponseDto(
                 product.getId() != null ? product.getId().getValue() : null,
                 product.getName(),

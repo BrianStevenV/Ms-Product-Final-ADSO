@@ -1,5 +1,6 @@
 package com.example.demo.adapters.driven.jpa.postgresql.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,5 +20,6 @@ public class DefinitionAttributesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nameAttribute;
-    private String typeData;
+    @Column(name = "type_data")
+    private String typeDataOfValueAttribute;
 }

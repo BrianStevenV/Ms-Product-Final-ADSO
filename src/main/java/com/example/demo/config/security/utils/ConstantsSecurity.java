@@ -4,6 +4,10 @@ public class ConstantsSecurity {
 
     private ConstantsSecurity() { throw new IllegalStateException("Utility class"); }
 
+    public static final String ADMINISTRATOR_ROLE = "ADMINISTRATOR";
+    public static final String CUSTOMER_ROLE = "CUSTOMER";
+    public static final String PROVIDER_ROLE = "PROVIDER";
+
     public static final String ERROR_EXTRACTING_ID_FROM_INFRASTRUCTURE_CONTEXT = "Error to get ID from infrastructure context: ";
 
     public static final String AUTHORIZATION_HEADER = "Authorization";

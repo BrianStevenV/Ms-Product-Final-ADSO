@@ -12,6 +12,13 @@ public class DefinitionAttribute {
         this.typeDataOfValueAttribute = typeDataOfValueAttribute;
     }
 
+    public DefinitionAttribute(String nameAttribute, String typeDataOfValueAttribute) {
+        this.nameAttribute = nameAttribute;
+        this.typeDataOfValueAttribute = typeDataOfValueAttribute;
+    }
+
+    public DefinitionAttribute(){};
+
     public Id getId() {
         return id;
     }

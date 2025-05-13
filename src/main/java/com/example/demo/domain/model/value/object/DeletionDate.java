@@ -11,4 +11,8 @@ public final class DeletionDate extends AbstractDate {
             throw new DeletionDateAfterCreationDateException();
         }
     }
+
+    public static DeletionDate builderDeletionDate(CreationDate creationDate){
+        return new DeletionDate(LocalDateTime.now(), creationDate);
+    }
 }

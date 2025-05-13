@@ -38,16 +38,6 @@ public final class Inventory {
         }
         return new Inventory(this.quantity + quantity, this.isActive);
     }
-
-//    public Inventory subtract(Integer quantity) {
-//        if(quantity < 0) {
-//            throw new IllegalArgumentException("Quantity cannot be negative");
-//        }
-//        if(this.quantity - quantity < 0) {
-//            throw new IllegalArgumentException("Resulting quantity cannot be negative");
-//        }
-//        return new Inventory(this.quantity - quantity, this.isActive);
-//    }
     public Inventory subtract(Integer quantity, Integer value) {
         if(quantity < 0) {
             throw new IllegalArgumentException("Quantity cannot be negative");

@@ -1,8 +1,7 @@
 package com.example.demo.domain.model.value.object;
 
-import com.example.demo.domain.exceptions.TypeDataValueAttributeIsDifferentOfDefinitionAttributeException;
 
-public final class ProductAttribute<T> {
+public final class ProductAttribute {
     private Id id;
     private DefinitionAttribute definitionAttribute;
     private String valueAttribute;
@@ -37,9 +36,4 @@ public final class ProductAttribute<T> {
         this.valueAttribute = valueAttribute;
     }
 
-    public void isTypeMatching(){
-        if(!definitionAttribute.getTypeDataOfValueAttribute().getClass().equals(valueAttribute.getClass())){
-            throw new TypeDataValueAttributeIsDifferentOfDefinitionAttributeException();
-        }
-    }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.adapters.driven.jpa.postgresql.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,12 +12,14 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Table(name = "product_attributes")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString(exclude = "product")
 public class ProductAttributesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +33,6 @@ public class ProductAttributesEntity {
     @JoinColumn(name = "definition_attribute_id", nullable = false)
     private DefinitionAttributesEntity definitionAttributes;
 
-//    @Column(name = "value_attribute")
-//    private T valueAttribute;
     @Column(name = "value_attribute")
     private String valueAttribute;
 }

@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString(exclude = {"productInfo", "productInventory", "category", "attributes"})
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,20 +31,17 @@ public class ProductEntity {
     @Column(name = "discount_id")
     private Long discountId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_info_id", nullable = false)
     private ProductInfoEntity productInfo;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_inventory_id", nullable = false)
     private ProductInventoryEntity productInventory;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryEntity category;
-
-
-
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductAttributesEntity> attributes;

@@ -3,21 +3,27 @@ package com.example.demo.domain.model.value.object;
 import com.example.demo.domain.model.Category;
 
 public class CategoryAttribute {
-    private Long id;
+    private Id id;
     private Category category;
     private DefinitionAttribute definitionAttribute;
 
-    public CategoryAttribute(Long id, Category category, DefinitionAttribute definitionAttribute) {
+    public CategoryAttribute(Id id, Category category, DefinitionAttribute definitionAttribute) {
         this.id = id;
         this.category = category;
         this.definitionAttribute = definitionAttribute;
     }
+    public CategoryAttribute(Category category, DefinitionAttribute definitionAttribute) {
+        this.category = category;
+        this.definitionAttribute = definitionAttribute;
+    }
 
-    public Long getId() {
+    public CategoryAttribute(){}
+
+    public Id getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Id id) {
         this.id = id;
     }
 

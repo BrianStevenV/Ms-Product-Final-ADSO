@@ -20,7 +20,7 @@ import static com.example.demo.config.security.utils.ConstantsSecurity.PREFIX_RE
 import org.springframework.security.core.GrantedAuthority;
 
 public class SecurityUtils {
-    private static AntPathMatcher pathMatcher = new AntPathMatcher();
+    private final static AntPathMatcher pathMatcher = new AntPathMatcher();
 
     public static long getIdFromInfrastructure(){
 

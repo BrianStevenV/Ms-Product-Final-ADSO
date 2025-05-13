@@ -15,12 +15,14 @@ import java.util.List;
 
 import static com.example.demo.config.security.jwt.utils.JwtMethodUtils.getIdFromToken;
 import static com.example.demo.config.security.jwt.utils.JwtMethodUtils.getRoleFromToken;
+import static com.example.demo.config.security.utils.ConstantsRoutesSecurity.FREE_GET_FEEDBACK_PRODUCT;
 import static com.example.demo.config.security.utils.SecurityUtils.getToken;
 import static com.example.demo.config.security.utils.SecurityUtils.isExcludedPrefixRecursively;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private List<String> excludedPrefixes = Arrays.asList("/product");
+    private List<String> excludedPrefixes = Arrays.asList();
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 

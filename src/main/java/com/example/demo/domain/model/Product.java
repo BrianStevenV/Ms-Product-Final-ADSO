@@ -68,6 +68,30 @@ public class Product {
         this.attributes = attributes;
         this.userProviderId = userProviderId;
     }
+    public Product(Id id, String name, String description, Money price, Category category, Inventory inventory, List<ProductAttribute> attributes) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.inventory = inventory;
+        this.attributes = attributes;
+    }
+
+    public Product(Id id, String name, String description, Money price, Category category, Discount discount, Inventory inventory, Long userProviderId, CreationDate creationDate, ModificationDate modificationDate) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.discount = discount;
+        this.inventory = inventory;
+        this.userProviderId = userProviderId;
+        this.creationDate = creationDate;
+        this.modificationDate = modificationDate;
+    }
+
+    public Product(){}
 
     public Id getId() {
         return id;
